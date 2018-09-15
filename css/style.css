@@ -334,12 +334,15 @@ ul.asset-grid {
   padding: 0;
 }
 
-li.color-name {
+button.color-name {
   padding: 1rem 0.875rem;
   flex: 1;
   flex-basis: 50%;
   max-width: calc(50% - 2.5rem);
   margin: 0.25rem 0.5rem 0.25rem 0;
+  cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 p.hex {
@@ -347,6 +350,7 @@ p.hex {
   font-weight: 400;
   margin: 0;
   color: #fff;
+  text-align: left;
 }
 
 p.title {
@@ -354,6 +358,7 @@ p.title {
   font-weight: 700;
   margin: 0;
   color: #fff;
+  text-align: left;
 }
 
 li.color-name img {
@@ -568,7 +573,7 @@ footer {
     margin: 0 2.5% 0 0;
   }
 
-  li.color-name {
+  button.color-name {
     flex-basis: 33.3333%;
     max-width: calc(33.33% - 2.5rem);
   }
@@ -599,7 +604,7 @@ footer {
   }
 }
 @media screen and (min-width: 800px) {
-  li.color-name {
+  button.color-name {
     flex-basis: 16.66%;
     max-width: calc(16.66% - 1.75%);
     margin: 0.5rem 1.75% 0.5rem 0;
@@ -693,5 +698,38 @@ footer {
     max-width: 1080px;
     margin: 0 auto;
     padding: 15px 0;
+  }
+}
+.ripple {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.ink {
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.animate {
+  -webkit-animation: ripple 0.6s linear;
+  animation: ripple 0.6s linear;
+}
+
+@-webkit-keyframes ripple {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+  }
+}
+@keyframes ripple {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+            transform: scale(2.5);
   }
 }
